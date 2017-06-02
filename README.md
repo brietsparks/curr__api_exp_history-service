@@ -1,1 +1,1 @@
-Beginnings of an Express Typescript app
+Beginnings of a Express Typescript app
