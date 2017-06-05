@@ -4,4 +4,7 @@ export const resolverMap = {
             return 1;
         }
     },
+
+    // Mutation: {
+    // },
 };

@@ -1,10 +1,9 @@
 import * as express from 'express';
 import {Project} from "./models/Project";
-import connectToDB from "./database";
 
 import * as bodyParser from 'body-parser';
 import { graphqlExpress } from 'graphql-server-express';
-import schema from './schema/';
+import { GraphQLOptions } from './GraphQL';
 
 const router = express.Router();
 
@@ -13,8 +12,8 @@ router.get('/', (req: express.Request, res: express.Response, next: express.Next
     res.send(JSON.stringify({a:1}));
 });
 
-router.get('/graphql', graphqlExpress({ schema: schema }));
-router.post('/graphql', bodyParser.json(), graphqlExpress({ schema: schema }));
+router.get('/graphql', graphqlExpress(GraphQLOptions));
+router.post('/graphql', bodyParser.json(), graphqlExpress(GraphQLOptions));
 
 export = router;
 
