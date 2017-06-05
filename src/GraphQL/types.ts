@@ -1,12 +1,13 @@
 export const Query = `
     type Query {
-        user(id: ID!): User
+        history(userId: ID!): History
     }
 `;
 
-export const User = `
-    type User {
+export const History = `
+    type History {
         id: ID!
+        userId: String
         projects: [Project]
     }
 `;
@@ -25,6 +26,7 @@ export const Contribution = `
     type Contribution {
         id: ID!
         title: String
-        parentProject: [Project]
+        project: [Project]
     }
 `;
+

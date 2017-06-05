@@ -1,6 +1,6 @@
 export const resolverMap = {
     Query: {
-        user(obj, args, context, info) {
+        history(obj, args, context, info) {
             return 1;
         }
     },

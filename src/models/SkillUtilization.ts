@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
+import {Contribution} from "./Contribution";
 
 @Entity()
 export class SkillUtilization {
@@ -8,5 +9,6 @@ export class SkillUtilization {
     @Column()
     skill_id: number;
 
-    // todo: belongs to contribution
+    @ManyToOne(type => Contribution, contribution => contribution.skillUtilizations)
+    contribution: Contribution
 }

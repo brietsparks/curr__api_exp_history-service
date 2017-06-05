@@ -1,12 +1,16 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import {Project} from "./Project";
 
 @Entity()
 export class History {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column("string", { // todo: change to guid
+    @Column("string", {
         length: 255
     })
-    person_id: string;
+    userId: string;
+
+    @OneToMany(type => Project, project => project.history)
+    projects: [Project]
 }

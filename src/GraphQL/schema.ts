@@ -7,7 +7,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 export default makeExecutableSchema({
     typeDefs: [
         types.Query,
-        types.User,
+        types.History,
         types.Project,
         types.Contribution
     ],
