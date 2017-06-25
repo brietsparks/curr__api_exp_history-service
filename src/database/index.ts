@@ -12,16 +12,19 @@ const MYSQL_DRIVER: DriverOptions = {
 
 const SQLITE_DRIVER: DriverOptions = {
     type: "sqlite",
-    storage: path.resolve(__dirname, '../my.db')
+    storage: path.resolve(__dirname, '../../my.db')
 };
 
 
 const options: ConnectionOptions = {
     driver: SQLITE_DRIVER,
     entities: [
-        path.resolve(__dirname, "./models/*.js")
+        path.resolve(__dirname, "../models/*.js")
     ],
-    autoSchemaSync: true
+    autoSchemaSync: true,
+    cli: {
+        migrationsDir: path.resolve(__dirname, "./migrations")
+    }
 };
 
 export default () => createConnection(options);

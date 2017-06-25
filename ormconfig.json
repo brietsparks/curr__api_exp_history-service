@@ -1,0 +1,21 @@
+{
+  "name": "default",
+  "driver": {
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "",
+    "database": "history_service"
+  },
+  "entities": [
+    "./build/models/*.js"
+  ],
+  "autoSchemaSync": true,
+  "migrations": [
+    "./build/database/migrations/*.js"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}

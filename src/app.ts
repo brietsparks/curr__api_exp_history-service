@@ -1,16 +1,20 @@
 import * as express from 'express';
-import * as routes from './routes';
 import { graphiqlExpress } from 'graphql-server-express';
 
-const app = express();
+import createConnection from './database';
+import * as routes from './routes';
 
-app.use('/', routes);
+createConnection().then(async connection => {
+    const app = express();
 
-app.use('/graphiql', graphiqlExpress({
-    endpointURL: '/graphql',
-}));
+    app.use('/', routes);
 
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log('Listening on port ' + PORT)
-});
+    app.use('/graphiql', graphiqlExpress({
+        endpointURL: '/graphql',
+    }));
+
+    const PORT = 3001;
+    app.listen(PORT, () => {
+        console.log('Listening on port ' + PORT)
+    });
+}).catch(err => console.log("TypeORM connection error: ", err));

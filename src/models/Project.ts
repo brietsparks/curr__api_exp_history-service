@@ -23,9 +23,7 @@ export class Project {
     @OneToMany(type => Contribution, contribution => contribution.project)
     contributions: Contribution;
 
-    @Column("string", {
-        length: 60
-    })
+    @Column()
     title: string;
 
     @Column("text")

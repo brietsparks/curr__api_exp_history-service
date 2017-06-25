@@ -6,8 +6,8 @@ export class SkillUtilization {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    skill_id: number;
+    @Column("int")
+    skillId: number;
 
     @ManyToOne(type => Contribution, contribution => contribution.skillUtilizations)
     contribution: Contribution

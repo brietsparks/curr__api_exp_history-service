@@ -6,9 +6,7 @@ export class History {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column("string", {
-        length: 255
-    })
+    @Column()
     userId: string;
 
     @OneToMany(type => Project, project => project.history)
